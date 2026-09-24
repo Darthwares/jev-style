@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
  * Shown as a visually separate group from a site's own navigation, with a
  * hover card explaining what each sister site does.
  */
-export type SiteId = "dotmap" | "jeval" | "jextract";
+export type SiteId = "dotmap" | "jeval" | "jextract" | "jtriage";
 
 export const SITES: Record<SiteId, { name: string; host: string; url: string; tagline: string; body: string; facts: [string, string][]; image: string; imageAlt: string }> = {
   dotmap: {
@@ -54,13 +54,27 @@ export const SITES: Record<SiteId, { name: string; host: string; url: string; ta
     image: "https://jextract.com/img/jextract-hero.png",
     imageAlt: "A document flowing into a grid of dots",
   },
+  jtriage: {
+    name: "jtriage",
+    host: "jtriage.vercel.app",
+    url: "https://jtriage.vercel.app",
+    tagline: "Channel triage for Slack, Discord, Teams",
+    body: "Reads 30 days of threads in a channel, has Jev judge each one as resolved or not and sort it into a bucket, then writes the open action items into a folder on your machine for a coding agent.",
+    facts: [
+      ["25 threads", "1.4 s · $0.0011 · 2 calls"],
+      ["per thread", "status, bucket, severity, follow-up"],
+      ["storage", "none: files go to your folder"],
+    ],
+    image: "https://jtriage.vercel.app/img/jtriage-hero.png",
+    imageAlt: "Threads as tiles, one still blue",
+  },
 };
 
-const ORDER: SiteId[] = ["dotmap", "jeval", "jextract"];
+const ORDER: SiteId[] = ["dotmap", "jeval", "jextract", "jtriage"];
 
 function Dots({ id }: { id: SiteId }) {
   // Each site's mark: round dots for dotmap and jeval, square tiles for jextract; one tile is always blue.
-  const shape = id === "jextract" ? "rounded-[1.5px]" : "rounded-full";
+  const shape = id === "jextract" || id === "jtriage" ? "rounded-[1.5px]" : "rounded-full";
   return (
     <span className="grid size-3 shrink-0 grid-cols-2 gap-[2px]" aria-hidden>
       <span className={cn(shape, "bg-current")} />
