@@ -12,7 +12,7 @@ A developer-console aesthetic: near-black charcoal (`#1E1E1E`) in dark mode, war
 - Tailwind CSS 4 (`@import "tailwindcss"` and `@theme inline` in `globals.css`; no `tailwind.config`).
 - shadcn `base-nova` style on `@base-ui/react` (not Radix). Add components with `pnpm dlx shadcn@latest add <name>` only if they are not already in `components/ui/`.
 - `next-themes` with `attribute="class"`, `defaultTheme="dark"`, `enableSystem`.
-- `lucide-react` icons, `sonner` toasts, `cn` from `lib/utils.ts`.
+- `lucide-react` icons, `sonner` toasts, `cn` from `lib/utils.ts`. The `shadcn` package itself must be a dependency: `globals.css` starts with `@import "shadcn/tailwind.css"`.
 - Fonts: Geist Sans as `--font-sans` and Geist Mono as `--font-geist-mono` via `next/font/google`. The variable **must** be named `--font-sans`, otherwise base-nova falls back to a serif.
 - pnpm. Lint with `pnpm run lint` (eslint 9, `eslint-config-next`). Never open a PR with lint errors.
 

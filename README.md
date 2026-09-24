@@ -20,7 +20,7 @@ If you are a coding agent: read `AGENTS.md` first. It is the contract for buildi
 ```bash
 npx create-next-app@latest my-site --ts --tailwind --app --src-dir --import-alias "@/*" --no-eslint
 cd my-site
-pnpm add @base-ui/react class-variance-authority cn lucide-react next-themes sonner tw-animate-css
+pnpm add @base-ui/react class-variance-authority cn lucide-react next-themes shadcn sonner tw-animate-css
 pnpm add -D tailwindcss@^4 @tailwindcss/postcss
 # then copy from this repo:
 cp -R ../jev-style/template/src/* src/
